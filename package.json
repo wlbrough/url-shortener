@@ -1,0 +1,11 @@
+{
+  "name": "url-shortener",
+  "version": "0.0.0",
+  "description": "Simple implementation of a url shortening service",
+  "main": "server.js",
+  "repository": "",
+  "author": "Bill Broughton <bill@gotechspring.com>",
+  "dependencies": {
+    "express": "~3.2.4"
+  }
+}
