@@ -15,11 +15,18 @@ router.get("/", function(req, res) {
   // do something
 });
 
-router.get("/new/:full_url", function(req, res) {
+router.get(/^\/new\/(.+)/, function(req, res) {
   var host = req.get('Host');
-  links.insert({ 'fullLink': req.params.full_url }, function(err, doc) {
+  var fullUrl = req.params[0];
+  if (!fullUrl.match(/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/)) {
+    res.json({ 'error': 'submission is not a vaild url' });
+  }
+  if (!fullUrl.match(/^https?:\/\//)) {
+    fullUrl = "http://" + fullUrl;
+  }
+  links.insert({ 'fullLink': fullUrl }, function(err, doc) {
     if (err) throw err;
-    res.json({ 'original_url': req.params.full_url, 'short_url': host + '/' + hashids.encodeHex(doc._id) });
+    res.json({ 'original_url': fullUrl, 'short_url': host + '/' + hashids.encodeHex(doc._id) });
   });
 });
 
