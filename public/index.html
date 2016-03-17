@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Timestamp Microservice</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1>API Basejump: URL Shortener</h1>
+            
+            <blockquote>
+            <strong>User stories:</strong>
+                <ol>
+                    <li>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</li>
+                    <li>When I visit that shortened URL, it will redirect me to my original link.</li>
+                </ol>
+            </blockquote>
+            
+            <p>Example creation usage:</p>
+            <p><code>https://url-shortener-wlbrough.c9users.io/new/http://www.google.com</code></p>
+            <p><code>https://url-shortener-wlbrough.c9users.io/new/freecodecamp.com/map</code></p>
+            <p>Example creation output:</p>
+            <p><code>{ "original_url": "http://freecodecamp.com/news", "short_url": "https://url-shortener-wlbrough.c9users.io/BMkDlq88kAt2r7gDp4l9" }</code></p>
+            <p>Usage:</p>
+            <p><code>https://url-shortener-wlbrough.c9users.io/BMkDlq88kAt2r7gDp4l9</code></p>
+            <p>Will redirect to:</p>
+            <p><code>http://freecodecamp.com/news</code></p>
+        </div>
+    </body>
+</html>

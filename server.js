@@ -6,14 +6,11 @@ var Hashids = require('hashids');
 var hashids = new Hashids();
 
 var router = express();
+router.use(express.static('public'));
 var server = http.createServer(router);
 var db = require('monk')('localhost/local');
 
 var links = db.get('links');
-
-router.get("/", function(req, res) {
-  // do something
-});
 
 router.get(/^\/new\/(.+)/, function(req, res) {
   var host = req.get('Host');
